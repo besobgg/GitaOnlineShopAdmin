@@ -1,0 +1,34 @@
+﻿@model ProductsViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    ViewData["CustomMenuItem"] = "Custom Item";
+}
+
+@*@section afterFooter{
+    <div>---------- At the end of the page ----------</div>
+}*@
+
+
+<h1>Products</h1>
+
+@await Html.PartialAsync("_ListProducts", Model.Products)
+
+<hr />
+
+<h1> Last Orders </h1>
+
+@await Html.PartialAsync("_ListOrders", Model.LastOrders)
+   
+
+<hr />
+Current Working Directory on Server: 
+<strong> @System.IO.Directory.GetCurrentDirectory() </strong>
+
+
+
+@*@section beforeHeader{
+    <div>---------- Before Header ----------</div>
+}*@
+
+

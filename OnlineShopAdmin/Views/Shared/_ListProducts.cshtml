@@ -1,0 +1,58 @@
+﻿@model List<Product>
+
+<table class="table table-striped table-bordered ">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Product Number
+            </th>
+            <th>
+                Color
+            </th>
+            <th>
+                List Price
+            </th>
+            <th>
+                Product Category
+            </th>
+            <th>
+                Modified Date
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var product in Model) {
+        <tr class="productRow">
+            <td>
+                @product.Name
+            </td>
+            <td>
+                @product.ProductNumber
+            </td>
+            <td>
+                @product.Color
+            </td>
+            <td >
+                @product.ListPrice
+            </td>
+            <td>
+                @product.ProductCategory.Name
+            </td>
+            <td>
+                @product.ModifiedDate
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@product.ProductId">Edit</a> |
+                <a href="/Products/Details/@product.ProductId">Details</a>
+               @* @Html.ActionLink("Edit", "Edit", new {id = product.ProductId}) |
+                <a href="@Url.Action("Edit")/@product.ProductId">Edit</a>|
+                <a href="/Products/Edit/@product.ProductId">Edit</a>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
